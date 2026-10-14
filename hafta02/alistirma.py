@@ -1,41 +1,29 @@
-# Hafta 2: Python temelleri
-#
-# Her fonksiyonun içindeki `pass` satırını silip kendi kodunuzu yazın.
-# Fonksiyonların adlarını ve parametrelerini DEĞİŞTİRMEYİN; testler bu adlarla çalışır.
-# Kendi bilgisayarınızda denemek için:  cd hafta02  ve ardından  python -m pytest -v
+import pytest
+from alistirma import isaret, donem_notu, harf_say, faktoriyel, gecenler
 
+def test_isaret():
+    assert isaret(5) == "pozitif"
+    assert isaret(-3) == "negatif"
+    assert isaret(0) == "sıfır"
 
-# 1. İşaret
-# Sayı 0'dan büyükse "pozitif", küçükse "negatif", 0 ise "sıfır" döndürün.
-# Örnek: isaret(5) -> "pozitif"
-def isaret(sayi):
-    pass
+def test_donem_notu():
+    assert donem_notu(50, 70) == 62.0
+    assert donem_notu(100, 100) == 100.0
+    assert donem_notu(0, 0) == 0.0
 
+def test_harf_say():
+    assert harf_say("merhaba", "a") == 2
+    assert harf_say("Ankara", "a") == 2
+    assert harf_say("Ankara", "A") == 1
+    assert harf_say("python", "z") == 0
 
-# 2. Dönem notu
-# Vizenin %40'ı ile finalin %60'ını toplayıp döndürün.
-# Örnek: donem_notu(50, 70) -> 62.0
-def donem_notu(vize, final):
-    pass
+def test_faktoriyel():
+    assert faktoriyel(0) == 1
+    assert faktoriyel(1) == 1
+    assert faktoriyel(5) == 120
+    assert faktoriyel(4) == 24
 
-
-# 3. Harf sayma
-# `metin` içinde `harf` karakterinin kaç kez geçtiğini döndürün.
-# Büyük/küçük harf ayrımı yapın: "A" ile "a" farklı harflerdir.
-# Örnek: harf_say("merhaba", "a") -> 2
-def harf_say(metin, harf):
-    pass
-
-
-# 4. Faktöriyel
-# n! = 1 * 2 * 3 * ... * n değerini bir döngüyle hesaplayın. 0! = 1'dir.
-# Örnek: faktoriyel(5) -> 120
-def faktoriyel(n):
-    pass
-
-
-# 5. Geçenler
-# Nottan 60 ve üzeri olanları, sıralarını bozmadan yeni bir liste olarak döndürün.
-# Örnek: gecenler([70, 45, 90]) -> [70, 90]
-def gecenler(notlar):
-    pass
+def test_gecenler():
+    assert gecenler([70, 45, 90]) == [70, 90]
+    assert gecenler([50, 59, 30]) == []
+    assert gecenler([60, 100, 80]) == [60, 100, 80]
