@@ -4,7 +4,6 @@
 import pytest
 from alistirma import kargo_ucreti, bilet_fiyati, ortalama
 
-
 def test_kargo_buyuk_sipariste_ucretsiz():
     assert kargo_ucreti(800) == 0
 
