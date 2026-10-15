@@ -17,7 +17,7 @@ def test_kisa_sifre_zayif():
     assert sifre_gucu("1234567890abc") == "güçlü"
     with pytest.raises(ValueError):
         sifre_gucu("")
-
+  
 def test_otopark_ucreti():
     assert otopark_ucreti(14) == 0
     assert otopark_ucreti(15) == 0
